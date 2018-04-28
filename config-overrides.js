@@ -87,12 +87,12 @@ function injectPublicPath(config, env) {
   });
 }
 
-function injectHID(config, _env) {
-  return merge(config, {
-    externals: {
-      'node-hid': 'commonjs node-hid'
-    }
-  });
-}
+// function injectHID(config, _env) {
+//   return merge(config, {
+//     externals: {
+//       'node-hid': 'commonjs node-hid'
+//     }
+//   });
+// }
 
-module.exports = compose(injectTarget, injectSassLoader, injectPublicPath, injectHID);
+module.exports = compose(injectTarget, injectSassLoader, injectPublicPath /* injectHID */);
