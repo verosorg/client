@@ -87,6 +87,14 @@ function injectPublicPath(config, env) {
   });
 }
 
+function injectElectron(config, _env) {
+  return merge(config, {
+    externals: {
+      electron: 'chrome'
+    }
+  });
+}
+
 // function injectHID(config, _env) {
 //   return merge(config, {
 //     externals: {
@@ -95,4 +103,10 @@ function injectPublicPath(config, env) {
 //   });
 // }
 
-module.exports = compose(injectTarget, injectSassLoader, injectPublicPath /* injectHID */);
+module.exports = compose(
+  injectTarget,
+  injectSassLoader,
+  injectPublicPath,
+  injectElectron
+  /* injectHID */
+);
